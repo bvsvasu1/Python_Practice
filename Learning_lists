@@ -1,3 +1,37 @@
-filenames = ['document', 'report', 'presentation']
-for i, j in enumerate(filenames):
-    print(f"{i}-{j.capitalize()}.txt")
+# filenames = ['document', 'report', 'presentation']
+# for i, j in enumerate(filenames):
+#     print(f"{i}-{j.capitalize()}.txt")
+
+
+
+###############################################
+# 1 liner if statement
+# ips = ['100.122.133.105', '100.122.133.111']
+# index = int(input())
+# print(f"You chose {ips[0] if index==0 else ips[1]}")
+
+
+###############################################
+#Remove elements from a list
+secs = [1.23, 1.45, 1.02, 1.11]
+secs.pop(1)
+print(secs)
+secs = [1.23, 1.45, 1.02, 1.11]
+secs.remove(1.02)
+print(secs)
+
+###############################################
+#List Comprehension
+#capitalizes all the names and surnames
+names = ["john smith", "jay santi", "eva kuki"]
+print([name.title() for name in names])
+
+#prints out a list containing the number of characters for each username.
+usernames = ["john 1990", "alberta1970", "magnola2000"]
+len_username = [len(i) for i in usernames]
+print(len_username)
+
+#prints out the sum of the numbers.
+user_entries = ['10', '19.1', '20']
+user_entries = [float(i) for i in user_entries]
+print(sum(user_entries))
