@@ -1,0 +1,10 @@
+R = Row('response_json')
+      response_df = spark.createDataFrame([R(x) for i,x in enumerate(records)])
+      response_json_df = response_df.withColumn("_c", F.to_json("response_json"))
+      company_transfer_df = response_json_df.withColumn("_c", F.from_json("_c", company_transfer_schema)) \
+                                          .select("_c.*","response_json") \
+                                          .withColumn('REQUESTED_RG',lit(region_code))
+      company_transfer_df.write.mode("append").saveAsTable(name=f"ssot_blue_turbo_fit.ap_company_transfers",partitionBy=['REQUESTED_RG'])
+
+
+#[{'CRTE_DTM': '2023-11-23T04:22:02.413+00:00', 'SRC_REGION': 'PA01', 'SRC_CMP': 'CFF', 'SRC_OOID': 'G3ZZXJYFDC87VZ0K', 'RELATION': 'SPIN', 'DEST_REGION': 'PA01', 'DEST_CMP': 'HN1', 'DEST_OOID': None}]}
