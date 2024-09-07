@@ -109,4 +109,61 @@
 # (hits, total) = reduce(lambda a,x: (a[0]+1, a[1]+1) if 'a' in x else (a[0],a[1]+1), cs, (0,0))
 # print(hits/total)
 
-from itertools import imap
+# K,M = map(int, input().split())
+
+# list_i = []
+# list_max = []
+# for i in range(K):
+#     list_i.append([int(x) for x in input().split()])
+
+# for i in list_i:
+#     print(max(i))
+#     list_max.append(pow(max(i),2))
+
+# print(list_max)
+# print(sum(list_max))
+# res = sum(list_max)%M
+# print(res)
+
+# from itertools import product
+
+# k, modulo = 7,867
+
+# lst = [[val**2 for val in map(int,input().split()[1:]) ] for _ in range(int(k))]
+# half = len(lst) // 2
+# lists1 = lst[:half]
+# lists2 = lst[half:]
+
+# print(lists1)
+# print(lists2)
+# res = 0
+# print(list(product(*lst)))
+# for i in product(*lst):
+#     x = sum(i)%int(modulo)
+#     res = max(x,res)
+# print(res)
+
+
+
+from itertools import product
+
+def maximize_it(k, M, sets):
+    # Generate all possible combinations using the Cartesian product
+    max_value = 0
+    for combination in product(*sets):
+        # Calculate the sum of squares of the selected numbers
+        current_sum_of_squares = sum(x ** 2 for x in combination) % M
+        if current_sum_of_squares > max_value:
+            max_value = current_sum_of_squares
+    return max_value
+    
+    
+if __name__ == "__main__":    
+    k, M = map(int, input().split())
+    sets = []
+    for _ in range(k):
+        # Read the entire line and convert it into a list of integers
+        sets.append(list(map(int, input().split())))
+    
+    result = maximize_it(k, M, sets)
+    print(result)

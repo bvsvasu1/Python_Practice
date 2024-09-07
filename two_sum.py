@@ -70,6 +70,6 @@ def two_sum_two_pointers(nums, target):
     raise ValueError("No two sum solution")
 
 # Example usage
-print(two_sum_two_pointers([2, 7, 11, 15], 13))  # Output: [0, 1]
+print(two_sum_two_pointers([2, 7, 11, 15], 18))  # Output: [0, 1]
 # print(two_sum_two_pointers([3, 2, 4], 6))       # Output: [1, 2]
 # print(two_sum_two_pointers([3, 3], 6))          # Output: [0, 1]
