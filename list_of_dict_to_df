@@ -9,3 +9,4 @@ company_transfer_df = response_json_df.withColumn("_c", F.from_json("_c", compan
                                     .select("_c.*","response_json") \
                                     .withColumn('REQUESTED_RG',lit(region_code))
 company_transfer_df.write.mode("append").saveAsTable(name=f"ssot_blue_turbo_fit.ap_company_transfers",partitionBy=['REQUESTED_RG'])
+
