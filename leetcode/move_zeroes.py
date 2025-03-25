@@ -35,3 +35,22 @@ def moveZeroes(nums: list[int]):
         return nums
 print(moveZeroes(nums))
 print([4,2,4,3,5,1,0,0,0,0])
+
+
+#solution 3:
+
+def moveZeroes(self, nums: List[int]):
+    """
+    Do not return anything, modify nums in-place instead.
+    """
+    if len(nums)==2:
+        if nums[0]==0 and nums[1]!=0:
+            nums[0]=nums[1]
+            nums[1]=0
+    elif len(nums)>2:
+        indices = [i for i,x in enumerate(nums) if x==0]
+        count = 0
+        for i in indices:
+            nums.pop(i-count)
+            nums.append(0)
+            count +=1

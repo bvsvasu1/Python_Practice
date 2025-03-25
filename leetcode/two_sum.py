@@ -18,3 +18,6 @@ def twoSum(nums: list[int], target: int):
     # If no solution is found, which should not h        
 nums = [2,7,11,15]
 print(twoSum(nums,9))
+
+nums = [3,2,4]
+print(twoSum(nums,6))
