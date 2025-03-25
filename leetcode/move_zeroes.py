@@ -39,7 +39,7 @@ print([4,2,4,3,5,1,0,0,0,0])
 
 #solution 3:
 
-def moveZeroes(self, nums: List[int]):
+def moveZeroes(self, nums):
     """
     Do not return anything, modify nums in-place instead.
     """
